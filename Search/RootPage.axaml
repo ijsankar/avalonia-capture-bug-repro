@@ -1,0 +1,37 @@
+<ContentPage
+    x:Class="SearchViewClone.Search.RootPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:SearchViewClone.ViewModels"
+    mc:Ignorable="d"
+    d:DesignHeight="708"
+    d:DesignWidth="708"
+    x:DataType="viewModels:MainViewModel"
+    Header="Root">
+
+    <DockPanel>
+        <Grid
+            DockPanel.Dock="Top"
+            Background="Transparent"
+            Margin="14 14 14 10"
+            ColumnDefinitions="*,368,*">
+
+            <ListBox
+                Grid.Column="1"
+                SelectedIndex="{Binding SelectedTab, Mode=TwoWay}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBoxItem Content="A" />
+                <ListBoxItem Content="B" />
+            </ListBox>
+        </Grid>
+
+        <NavigationPage x:Name="NavigationPresenter" />
+    </DockPanel>
+
+</ContentPage>

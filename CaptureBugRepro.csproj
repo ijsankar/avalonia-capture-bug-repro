@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <!--
+      A minimal, self-contained repro of an orphaned-pointer-capture bug in Avalonia. A ListBox selects one
+      of two sibling pages inside a CarouselPage; each page has a text box that opens an overlay page (pushed
+      with no transition). The first click after the overlay opens can be swallowed. The core Page controls
+      (ContentPage, NavigationPage, CarouselPage) and the Fluent theme come from Avalonia.
+
+      Run against a local Avalonia source clone with the live fix toggle (default):
+          dotnet run  -c Debug
+      Run against stock Avalonia 12.1.2 (reproduces the bug; fix toggle disabled):
+          same, adding  -p:UseAvaloniaSource=false
+    -->
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+        <AvaloniaVersion>12.1.2</AvaloniaVersion>
+        <RootNamespace>SearchViewClone</RootNamespace>
+    </PropertyGroup>
+
+    <!-- Avalonia-from-source markers (see Directory.Build.targets). This project has AXAML, so
+         _AvaloniaConsumesXaml wires up the source XAML compiler + name generator. -->
+    <PropertyGroup Condition="'$(UseAvaloniaSource)' == 'true'">
+        <AvaloniaSourceRef_Avalonia>true</AvaloniaSourceRef_Avalonia>
+        <AvaloniaSourceRef_Desktop>true</AvaloniaSourceRef_Desktop>
+        <_AvaloniaConsumesXaml>true</_AvaloniaConsumesXaml>
+        <!-- Pointer.EnableFix (the runtime fix toggle) only exists in the source clone, so the checkbox that
+             drives it compiles only against source. -->
+        <DefineConstants>$(DefineConstants);AVALONIA_SOURCE</DefineConstants>
+    </PropertyGroup>
+
+    <!-- This isolated project does not reference the repo's JetBrains.Annotations package; drop the implicit
+         global using the repo's Directory.Build.props injects. -->
+    <ItemGroup>
+        <Using Remove="JetBrains.Annotations"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)"/>
+        <!-- Stays on NuGet in both modes; unifies by identity with source Avalonia at 12.1.2. -->
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12"/>
+    </ItemGroup>
+
+</Project>

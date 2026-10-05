@@ -1,0 +1,16 @@
+<CarouselPage
+    x:Class="SearchViewClone.Search.TabsPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:navigation="clr-namespace:SearchViewClone.Search.Navigation"
+    xmlns:viewModels="clr-namespace:SearchViewClone.ViewModels"
+    mc:Ignorable="d"
+    d:DesignHeight="708"
+    d:DesignWidth="708"
+    x:DataType="viewModels:MainViewModel"
+    Background="Transparent"
+    IsGestureEnabled="False"
+    PageTransition="{x:Static navigation:PageTransitions.Slide}"
+    SelectedIndex="{Binding SelectedTab, Mode=TwoWay}" />

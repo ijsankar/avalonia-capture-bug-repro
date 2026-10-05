@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="SearchViewClone.MainWindow"
+        Width="800" Height="700"
+        Title="Pointer capture repro">
+    <DockPanel LastChildFill="True">
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="8">
+            <!-- Toggles Avalonia.Input.Pointer.EnableFix at runtime (source build only). -->
+            <CheckBox x:Name="EnableFixToggle" VerticalAlignment="Center"
+                      Content="Pointer.EnableFix" IsChecked="True" />
+            <TextBlock x:Name="Instructions" Margin="16,0,0,0" VerticalAlignment="Center"
+                       TextWrapping="Wrap"
+                       Text="Click into a tab's text box (opens the overlay instantly), then click the other tab. When the bug hits, that first tab click is swallowed; click again and it works. Timing-dependent — may take a few tries." />
+        </StackPanel>
+
+        <!-- The page under test is injected here at runtime. -->
+        <ContentControl x:Name="PageHost" />
+    </DockPanel>
+</Window>
