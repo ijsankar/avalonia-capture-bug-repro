@@ -1,6 +1,3 @@
-using Avalonia.Controls;
-using SearchViewClone.Search;
-
 namespace SearchViewClone;
 
 public partial class MainWindow : Window

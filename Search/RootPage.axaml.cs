@@ -1,8 +1,3 @@
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Threading;
-using SearchViewClone.ViewModels;
-
 namespace SearchViewClone.Search;
 
 // Hosts the active tab page and forwards INavigationAware notifications to it.

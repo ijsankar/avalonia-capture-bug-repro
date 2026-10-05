@@ -1,8 +1,5 @@
-using Avalonia;
-using Avalonia.Controls;
+using System.Linq;
 using Avalonia.Reactive;
-using SearchViewClone.Search.Scopes;
-using SearchViewClone.ViewModels;
 
 namespace SearchViewClone.Search;
 

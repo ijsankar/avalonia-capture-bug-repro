@@ -1,0 +1,13 @@
+global using System;
+global using System.Collections.Generic;
+global using System.Linq;
+global using System.Threading.Tasks;
+global using System.Collections.Generic;
+global using Avalonia;
+global using Avalonia.Controls;
+global using Avalonia.Input;
+global using Avalonia.Interactivity;
+global using Avalonia.Threading;
+global using SearchViewClone.Search;
+global using SearchViewClone.Search.Scopes;
+global using SearchViewClone.ViewModels;

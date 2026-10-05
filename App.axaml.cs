@@ -1,10 +1,6 @@
-using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Microsoft.Extensions.DependencyInjection;
-using SearchViewClone.Search;
-using SearchViewClone.Search.Scopes;
-using SearchViewClone.ViewModels;
 
 namespace SearchViewClone;
 

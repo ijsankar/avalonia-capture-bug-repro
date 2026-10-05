@@ -1,5 +1,3 @@
-using System;
-using Avalonia.Controls;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace SearchViewClone.Search;

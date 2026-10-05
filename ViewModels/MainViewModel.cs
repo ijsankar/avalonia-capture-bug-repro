@@ -1,6 +1,3 @@
-using SearchViewClone.Search;
-using SearchViewClone.Search.Scopes;
-
 namespace SearchViewClone.ViewModels;
 
 // The top-level view model. It owns the two pieces of state the bug needs:

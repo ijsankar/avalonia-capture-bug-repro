@@ -1,8 +1,3 @@
-using Avalonia.Controls;
-using Avalonia.Input;
-using Avalonia.Interactivity;
-using SearchViewClone.ViewModels;
-
 namespace SearchViewClone.Search.Scopes;
 
 public sealed partial class PageA : ContentPage, INavigationAware

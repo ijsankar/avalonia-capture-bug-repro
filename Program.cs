@@ -1,6 +1,3 @@
-using System;
-using Avalonia;
-
 namespace SearchViewClone;
 
 internal static class Program

@@ -1,10 +1,3 @@
-using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Input;
-using Avalonia.Interactivity;
-using Avalonia.Threading;
-using SearchViewClone.ViewModels;
-
 namespace SearchViewClone.Search.Scopes;
 
 // The overlay page pushed on top of a tab page.
